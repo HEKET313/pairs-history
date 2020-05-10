@@ -1,0 +1,46 @@
+version: '2'
+services:
+    php:
+        build:
+            context: ./php-fpm
+        volumes:
+            - ./../:/var/www/pairs
+            - ./logs/pairs:/var/www/pairs/tmp/php-fpm/logs:cached
+        entrypoint: /var/www/pairs/docker/php-fpm/entrypoint.sh
+        networks:
+            network:
+                ipv4_address: 172.25.0.5
+    nginx:
+        build:
+          context: ./nginx
+        ports:
+            - "81:81"
+        links:
+            - php
+        depends_on:
+            - php
+        volumes_from:
+            - php
+        volumes:
+            - ./logs/nginx/:/var/log/nginx:cached
+        networks:
+            network:
+                ipv4_address: 172.25.0.3
+    db:
+        image: postgres:latest
+        restart: always
+        environment:
+            POSTGRES_DB: pairs
+            POSTGRES_USER: pairsUser
+            POSTGRES_PASSWORD: password
+        networks:
+            network:
+                ipv4_address: 172.25.0.4
+networks:
+  network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1

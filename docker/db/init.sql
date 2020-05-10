@@ -1,0 +1,5 @@
+CREATE USER pairsUser PASSWORD 'password';
+
+CREATE DATABASE pairs;
+
+GRANT ALL PRIVILEGES ON DATABASE pairs TO pairsUser;

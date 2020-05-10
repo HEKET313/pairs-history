@@ -1,0 +1,24 @@
+doctrine:
+    dbal:
+        # configure these for your database server
+        driver: 'pdo_pgsql'
+        server_version: 10.5
+        charset: UTF8
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
+        host:     '%env(DB_HOST)%'
+        port:     '%env(DB_PORT)%'
+        dbname:   '%env(DB_NAME)%'
+        user:     '%env(DB_USER)%'
+        password: '%env(DB_PASSWORD)%'
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        mappings:
+            pairs_mapping:
+                type: annotation
+                prefix: App\Entity
+                dir: "%kernel.project_dir%/src/Entity/"
+                is_bundle: false
