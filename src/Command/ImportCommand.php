@@ -38,5 +38,6 @@ class ImportCommand extends Command
         $this->io->title('Import crypto-currency pairs data');
         $this->service->importNewData();
         $this->io->success('Data loaded successfully');
+        return 0;
     }
 }
