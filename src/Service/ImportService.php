@@ -57,7 +57,7 @@ class ImportService
 
     private function getHourlyData(string $pairName, ?string $lastUpdate): iterable
     {
-        $dateFrom = $lastUpdate ? new \DateTime($lastUpdate) : new \DateTime('-5 days');
+        $dateFrom = $lastUpdate ? (new \DateTime($lastUpdate))->add(new \DateInterval('1 hour')) : new \DateTime('-5 days');
         try {
             $result = $this->client->getHistoryHourly($dateFrom, new \DateTime('now'), $pairName);
             if (!$result) {
