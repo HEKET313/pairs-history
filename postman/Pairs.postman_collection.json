@@ -23,11 +23,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/?{{debug}}",
+					"raw": "{{host}}/api/pair/?{{debug}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
+						"api",
+						"pair",
 						""
 					],
 					"query": [
@@ -58,11 +60,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/BTCUSDT?date_from=2020-05-07 03:00:00&date_to=2020-05-08 00:00:00&{{debug}}",
+					"raw": "{{host}}/api/pair/BTCUSDT?date_from=2020-05-07 03:00:00&date_to=2020-05-08 00:00:00&{{debug}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
+						"api",
+						"pair",
 						"BTCUSDT"
 					],
 					"query": [
