@@ -16,3 +16,9 @@ docker/pg_data/storage
 ###< docker/pg ###
 /ca.pem
 /public/ca.pem
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###

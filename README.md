@@ -27,3 +27,9 @@ Execute import command
 ```
 php bin/console pairs:import
 ```
+
+# Tests
+
+```
+php bin/phpunit
+```
