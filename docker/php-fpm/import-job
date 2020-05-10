@@ -1,0 +1,1 @@
+0 * * * * php /var/www/pairs/bin/console pairs:import > /proc/1/fd/1 &
